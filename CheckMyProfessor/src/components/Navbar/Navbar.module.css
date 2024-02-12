@@ -1,0 +1,35 @@
+@import "../../vars.css";
+
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 41px;
+    margin: 0 10%;
+}
+
+.icons {
+    display: flex;
+    padding-left: 450px;
+}
+
+.icons a {
+    margin-right: 23px; 
+}
+
+.icons a svg {
+    font-size: 25px; 
+    color: black;
+
+}
+
+
+.menuItems {
+    display: flex;
+    list-style-type: none;
+}
+
+.menuItems li {
+    margin-right: 10px; /* Adjust margin as needed */
+}
