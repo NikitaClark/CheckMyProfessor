@@ -1,0 +1,62 @@
+@import "../../vars.css";
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 41px;
+    margin: 0 10%;
+}
+.icons {
+    display: flex;
+    padding-left: 20%; /* Adjust as needed */
+}
+.icons a {
+    margin-right: 23px; /* Adjust as needed */
+}
+.icons a svg {
+    font-size: 25px;
+    color: black;
+}
+/* Hero.module.css */
+.menu {
+  display: flex;
+  justify-content: center;
+  padding-right: 20%;
+  margin: 0;
+  list-style: none;
+}
+
+.menuItem {
+  margin-right: 10px; /* Space between the buttons */
+}
+
+.menuItem:last-child {
+  margin-right: 0; /* No margin for the last button */
+}
+
+.menuLink {
+  text-decoration: none; /* Remove underline from links */
+  color: #000; /* Text color for 'Log In' */
+  padding: 10px 20px; /* Padding inside the buttons */
+  border-radius: 20px; /* Rounded corners */
+  background-color: transparent; /* No background for 'Log In' button */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.menuLink.signUp {
+  background-color: #000; /* Background for the 'Sign Up' button */
+  color: #fff; /* Text color for the 'Sign Up' button */
+  border: none; /* No border for 'Sign Up' */
+}
+
+
+
+
+
+
+
+
+
+
+
