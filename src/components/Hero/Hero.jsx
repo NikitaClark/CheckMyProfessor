@@ -3,35 +3,50 @@ import styles from './Hero.module.css'; // Import the CSS module
 import logoImage from './CheckMyProfessorLogo.jpg'; // Make sure the logo image path is correct
 
 export const Hero = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [headingText, setHeadingText] = useState('Выберите ваш университет');
+    const [selectedSchool, setSelectedSchool] = useState('');
+    const [selectedProfessor, setSelectedProfessor] = useState('');
 
-    const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value);
-        setHeadingText(`Выберите вашего професора в ${e.target.value}`);
+    const handleSchoolChange = (e) => {
+        setSelectedSchool(e.target.value);
+    };
+
+    const handleProfessorChange = (e) => {
+        setSelectedProfessor(e.target.value);
     };
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         // Implement your search logic here
-        console.log('Searching for:', searchTerm);
+        console.log('Selected School:', selectedSchool);
+        console.log('Selected Professor:', selectedProfessor);
     };
 
     return (
         <div className={styles.heroContainer}>
             <div className={styles.heroContent}>
                 <img src={logoImage} alt="CheckMyProfessor Logo" className={styles.logo} />
-                <h1>{headingText}</h1>
+                <h1>{selectedSchool ? `Select a professor from ${selectedSchool}` : 'Select your school'}</h1>
                 <form className={styles.searchBar} onSubmit={handleSearchSubmit}>
-                    <input
-                        type="text"
-                        placeholder="Search for your school..."
-                        value={searchTerm}
-                        onChange={handleSearchChange}
-                        list="schools" // Associate the input with the datalist
-                    />
-                      <datalist id="schools">
-    <option value="Московский государственный университет им. М.В. Ломоносова" />
+                    {!selectedSchool && (
+                        <input
+                            type="text"
+                            placeholder="Search for your school..."
+                            value={selectedSchool}
+                            onChange={handleSchoolChange}
+                            list="schools"
+                        />
+                    )}
+                    {selectedSchool && (
+                        <input
+                            type="text"
+                            placeholder="Search for your professor..."
+                            value={selectedProfessor}
+                            onChange={handleProfessorChange}
+                            list="professors"
+                        />
+                    )}
+                    <datalist id="schools">
+                    <option value="Московский государственный университет им. М.В. Ломоносова" />
     <option value="Санкт-Петербургский государственный университет" />
     <option value="Новосибирский государственный университет" />
     <option value="Московский физико-технический институт" />
@@ -50,9 +65,29 @@ export const Hero = () => {
     <option value="Южно-Уральский государственный университет" />
     <option value="Фармацевтическая академия им. С.М. Кирова" />
     <option value="Московский государственный технический университет им. Н.Э. Баумана" />
-    <option value="Российский государственный педагогический университет им. А.И. Герцена" />
-   
-</datalist>
+                    </datalist>
+                    <datalist id="professors">
+                    <option value="Александр Иванов" />
+                    <option value="Мария Петрова" />
+                    <option value="Дмитрий Смирнов" />
+                    <option value="Елена Васильева" />
+                    <option value="Игорь Николаев" />
+                    <option value="Татьяна Кузнецова" />
+                    <option value="Сергей Попов" />
+                    <option value="Ольга Соколова" />
+                    <option value="Владимир Михайлов" />
+                    <option value="Наталья Федорова" />
+                    <option value="Андрей Алексеев" />
+                    <option value="Юлия Морозова" />
+                    <option value="Григорий Волков" />
+                    <option value="Анна Павлова" />
+                    <option value="Никита Богданов" />
+                    <option value="Ирина Лебедева" />
+                    <option value="Максим Орлов" />
+                    <option value="Светлана Козлова" />
+                    <option value="Роман Новиков" />
+                    <option value="Екатерина Зайцева" />
+                    </datalist>
                 </form>
             </div>
         </div>
