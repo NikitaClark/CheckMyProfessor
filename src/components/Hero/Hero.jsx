@@ -4,9 +4,11 @@ import logoImage from './CheckMyProfessorLogo.jpg'; // Make sure the logo image 
 
 export const Hero = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [headingText, setHeadingText] = useState('Выберите ваш университет');
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
+        setHeadingText(`Выберите вашего професора в ${e.target.value}`);
     };
 
     const handleSearchSubmit = (e) => {
@@ -19,7 +21,7 @@ export const Hero = () => {
         <div className={styles.heroContainer}>
             <div className={styles.heroContent}>
                 <img src={logoImage} alt="CheckMyProfessor Logo" className={styles.logo} />
-                <h1>Enter your school to get started</h1>
+                <h1>{headingText}</h1>
                 <form className={styles.searchBar} onSubmit={handleSearchSubmit}>
                     <input
                         type="text"
@@ -28,7 +30,7 @@ export const Hero = () => {
                         onChange={handleSearchChange}
                         list="schools" // Associate the input with the datalist
                     />
-                    <datalist id="schools">
+                      <datalist id="schools">
     <option value="Московский государственный университет им. М.В. Ломоносова" />
     <option value="Санкт-Петербургский государственный университет" />
     <option value="Новосибирский государственный университет" />
@@ -51,7 +53,6 @@ export const Hero = () => {
     <option value="Российский государственный педагогический университет им. А.И. Герцена" />
    
 </datalist>
-
                 </form>
             </div>
         </div>
