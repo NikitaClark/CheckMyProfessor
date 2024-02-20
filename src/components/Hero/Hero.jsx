@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Hero.module.css'; // Import the CSS module
 import logoImage from './CheckMyProfessorLogo.jpg'; // Make sure the logo image path is correct
-import universityVideo from './vid.mp4'; // Path to the video you want to display
 
 export const Hero = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -27,21 +26,13 @@ export const Hero = () => {
                         placeholder="Search for your school..."
                         value={searchTerm}
                         onChange={handleSearchChange}
-                        list="schools"
+                        list="schools" // Associate the input with the datalist
                     />
-                    <datalist id="schools">
-                        <option value="University of Miami" />
+                    <datalist id="schools"> // Define the datalist
+                        <option value="University of Miami" /> // University of Miami as an option
                         {/* Add more options here if needed */}
                     </datalist>
                 </form>
-                {searchTerm === 'University of Miami' && (
-                    <div className={styles.universityInfo}>
-                        <p>Welcome to the University of Miami!</p>
-                        <video src={universityVideo} controls className={styles.universityVideo}>
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                )}
             </div>
         </div>
     );
