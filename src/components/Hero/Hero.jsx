@@ -2,35 +2,36 @@ import React, { useState } from 'react';
 import styles from './Hero.module.css'; // Import the CSS module
 import logoImage from './CheckMyProfessorLogo.jpg'; // Make sure the logo image path is correct
 
-export const Hero = () => {
+export const Hero = ({ onProfessorSelect }) => { // Accept onProfessorSelect as a prop
     const [selectedSchool, setSelectedSchool] = useState('');
     const [selectedProfessor, setSelectedProfessor] = useState('');
 
     const handleSchoolChange = (e) => {
         setSelectedSchool(e.target.value);
+        setSelectedProfessor(''); // Reset professor selection when a new school is selected
     };
 
     const handleProfessorChange = (e) => {
         setSelectedProfessor(e.target.value);
+        onProfessorSelect(e.target.value); // Notify the parent component about the professor selection
     };
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        // Implement your search logic here
-        console.log('Selected School:', selectedSchool);
-        console.log('Selected Professor:', selectedProfessor);
+        console.log('Выбранное учебное заведение:', selectedSchool);
+        console.log('Выбранный профессор:', selectedProfessor);
     };
 
     return (
         <div className={styles.heroContainer}>
             <div className={styles.heroContent}>
                 <img src={logoImage} alt="CheckMyProfessor Logo" className={styles.logo} />
-                <h1>{selectedSchool ? `Select a professor from ${selectedSchool}` : 'Select your school'}</h1>
+                <h1>{selectedSchool ? `Выберите профессора из ${selectedSchool}` : 'Выберите ваш университет'}</h1>
                 <form className={styles.searchBar} onSubmit={handleSearchSubmit}>
                     {!selectedSchool && (
                         <input
                             type="text"
-                            placeholder="Search for your school..."
+                            placeholder="Поиск вашего университета..."
                             value={selectedSchool}
                             onChange={handleSchoolChange}
                             list="schools"
@@ -39,7 +40,7 @@ export const Hero = () => {
                     {selectedSchool && (
                         <input
                             type="text"
-                            placeholder="Search for your professor..."
+                            placeholder="Поиск вашего профессора..."
                             value={selectedProfessor}
                             onChange={handleProfessorChange}
                             list="professors"

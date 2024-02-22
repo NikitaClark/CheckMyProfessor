@@ -1,41 +1,75 @@
-
-.professorContainer {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    background: #f5f5f5;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .profileSection {
+.header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #f1f1f1; /* Replace with the actual color you want */
   }
   
-
-  
-  .name {
-    font-size: 20px;
-    margin: 5px 0;
-  }
-  
-  .title {
-    font-size: 16px;
-    color: #666;
-    margin: 5px 0;
-  }
-  
-  .bio {
+  .ratingBlock {
     text-align: center;
-    margin-top: 10px;
   }
+  
+  .ratingValue {
+    font-size: 3rem; /* Large font size for the rating number */
+    font-weight: bold;
+  }
+  
+  .outOfFive {
+    font-size: 1rem; /* Smaller font size for the "/ 5" */
+    vertical-align: top;
+  }
+  
+  .qualityStatement {
+    font-size: 0.8rem;
+  }
+  
+  .professorInfo {
+    text-align: center;
+  }
+  
+  .professorName {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .department {
+    font-size: 0.9rem;
+  }
+  
+  .additionalInfo {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Space between 'Would take again' and 'Level of Difficulty' */
+  }
+  
+  .wouldTakeAgain, .levelOfDifficulty {
+    text-align: center;
+  }
+  
+  .na, .difficultyValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .infoText {
+    font-size: 0.8rem;
+    display: block; /* Makes the text appear under the number */
+  }
+  
+  .actionButtons {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .rateButton, .compareButton {
+    padding: 0.5rem 1rem;
+    border: none;
+    color: white;
+    background-color: blue; /* Replace with actual button colors */
+    cursor: pointer;
+  }
+  
+  /* Add further styling such as hover effects, active states, etc. */
   
